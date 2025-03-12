@@ -4,20 +4,34 @@ class_name Mob extends CharacterBody2D
 @export var acceleration := 700.0
 
 var _player: Player = null
+var damage := 1
 
-@onready var _detection_area: Area2D = %DetectionArea
+@onready var detection_area: Area2D = %DetectionArea
+@onready var hitbox: Area2D = $Hitbox
+@onready var damage_timer: Timer = $DamageTimer
 
 
 func _ready() -> void:
-	_detection_area.body_entered.connect(func (body: Node) -> void:
+	detection_area.body_entered.connect(func (body: Node) -> void:
 		if body is Player:
 			_player = body
 	)
-	_detection_area.body_exited.connect(func (body: Node) -> void:
+	detection_area.body_exited.connect(func (body: Node) -> void:
 		if body is Player:
 			_player = null
 	)
-
+	hitbox.body_entered.connect(func (body: Node) -> void:
+		if body is Player:
+			body.health -= damage
+			damage_timer.start()
+			)
+	hitbox.body_exited.connect(func (body: Node) -> void:
+		if body is Player:
+			damage_timer.stop()
+			)
+	damage_timer.timeout.connect(func () -> void:
+		_player.health -= damage
+		)
 
 func _physics_process(delta: float) -> void:
 	if _player == null:

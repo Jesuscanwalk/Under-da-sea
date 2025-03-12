@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx3yaof1y7gcr"]
+[gd_scene load_steps=5 format=3 uid="uid://cx3yaof1y7gcr"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_qf20f"]
 [ext_resource type="Texture2D" uid="uid://bepixin1g1hga" path="res://player/penguin.png" id="2_xunjt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xuwma"]
 radius = 45.0444
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riqx2"]
+bg_color = Color(0.550956, 0.96135, 0.625933, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qf20f")
@@ -16,3 +28,21 @@ texture = ExtResource("2_xunjt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 23)
 shape = SubResource("CircleShape2D_xuwma")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -82.0
+offset_right = 53.0
+offset_bottom = -66.0
+pivot_offset = Vector2(60, -30)
+theme_override_styles/fill = SubResource("StyleBoxFlat_riqx2")
+max_value = 3.0
+value = 3.0
+show_percentage = false

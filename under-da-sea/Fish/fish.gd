@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var rayfolder = $rayfolder.getchildren()
+@onready var rayfolder = $rayfolder.get_children()
 
 var FishISee := []
 var vel := Vector2.ZERO
@@ -12,7 +12,7 @@ func _ready() -> void:
 	screensize = get_viewport_rect().size
 	randomize()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	Fish()
 	checkCollision()
 	vel = vel.normalized() * speed 
@@ -20,7 +20,11 @@ func _process(delta: float) -> void:
 	rotation = lerp_angle(rotation, vel. angle_to_point(Vector2.ZERO), 0.4)
 
 func Fish() -> void:
-	pass
+	if FishISee:
+		var _numOffishs := FishISee.size()
+		var _avgVel := Vector2.ZERO 
+		var _avgPos := Vector2.ZERO
+		var _steeraway := Vector2.ZERO
 
 func checkCollision() -> void:
 	pass
@@ -35,3 +39,12 @@ func move() -> void:
 		global_position.y = screensize.y
 	if global_position.y > screensize.y:
 		global_position.y = 0
+
+
+func _on_vision_area_exited(area: Area2D) -> void:
+	if area:
+		FishISee.erase(area)
+
+func _on_vision_area_entered(area: Area2D) -> void:
+	if area != self and area.is_in_group("Fish"):
+		FishISee.append(area)

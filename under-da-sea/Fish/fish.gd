@@ -25,9 +25,19 @@ func Fish() -> void:
 		var _avgVel := Vector2.ZERO 
 		var _avgPos := Vector2.ZERO
 		var _steeraway := Vector2.ZERO
-
+		for Fish in FishISee:
+			_avgVel += Fish.vel
+			_avgPos += Fish.position
+			_steeraway -= (Fish.global_position - global_position) * (movv/( global_position - Fish.global_position.length()))
+		_avgVel /= _numOffishs
+		vel += (_avgVel - vel)/2
+		_avgPos /= _numOffishs
+		vel += (_avgPos - position)
 func checkCollision() -> void:
-	pass
+	for ray in rayfolder:
+		var r: RayCast2D = ray
+		if r.is_colliding():
+			pass
 
 func move() -> void:
 	global_position += vel

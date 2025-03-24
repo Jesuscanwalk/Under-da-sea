@@ -28,7 +28,7 @@ func Fish() -> void:
 		for Fish in FishISee:
 			_avgVel += Fish.vel
 			_avgPos += Fish.position
-			_steeraway -= (Fish.global_position - global_position) * (movv/( global_position - Fish.global_position.length()))
+			_steeraway -= (Fish.global_position - global_position) * (movv/( global_position - Fish.global_position).length())
 		_avgVel /= _numOffishs
 		vel += (_avgVel - vel)/2
 		_avgPos /= _numOffishs
@@ -37,6 +37,9 @@ func checkCollision() -> void:
 	for ray in rayfolder:
 		var r: RayCast2D = ray
 		if r.is_colliding():
+			if r.get_collider().is_in_group("blocks"):
+				var magi := (100/(r.get_collision_point() - global_position).length_squared())
+				vel -= (r.cast_to.rotated(rotation) * magi)
 			pass
 
 func move() -> void:
@@ -58,3 +61,7 @@ func _on_vision_area_exited(area: Area2D) -> void:
 func _on_vision_area_entered(area: Area2D) -> void:
 	if area != self and area.is_in_group("Fish"):
 		FishISee.append(area)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

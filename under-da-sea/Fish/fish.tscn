@@ -42,5 +42,6 @@ target_position = Vector2(25, -24)
 [node name="RayCast2D4" type="RayCast2D" parent="rayfolder"]
 target_position = Vector2(28, 26)
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Vision" to="." method="_on_vision_area_entered"]
 [connection signal="area_exited" from="Vision" to="." method="_on_vision_area_exited"]

@@ -6,4 +6,4 @@ func _on_start_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
-	print("quit")
+	get_tree().quit()

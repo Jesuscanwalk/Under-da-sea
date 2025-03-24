@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://b73qqcg5kpysa"]
+
+[ext_resource type="FontFile" uid="uid://b32vmci8dumap" path="res://menus/PeaberryDoublespace.ttf" id="1_32e0i"]
+[ext_resource type="Script" path="res://menus/end.gd" id="2_ulwke"]
+
+[sub_resource type="Theme" id="Theme_2l3ja"]
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_32e0i")
+Label/font_sizes/font_size = 64
+Label/fonts/font = ExtResource("1_32e0i")
+
+[node name="End" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2l3ja")
+script = ExtResource("2_ulwke")
+
+[node name="UIPanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.5
+offset_top = -117.5
+offset_right = 184.5
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIPanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="UIPanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UIPanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIPanelContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="retry" type="Button" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "RETRY"
+
+[node name="quit" type="Button" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="pressed" from="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer/retry" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

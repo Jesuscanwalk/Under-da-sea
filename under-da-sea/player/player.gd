@@ -26,3 +26,4 @@ func set_health(new_health: int) -> void:
 func die() -> void:
 	queue_free()
 	collision_shape_2d.set_deferred("disabled", true)
+	get_tree().change_scene_to_file("res://menus/end.tscn")

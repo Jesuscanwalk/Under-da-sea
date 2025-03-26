@@ -13,9 +13,9 @@ size = Vector2(105.5, 56)
 script = ExtResource("1_vvukt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, -1)
+position = Vector2(-6.18343, -0.543153)
 rotation = -1.54776
-scale = Vector2(0.4375, 0.429688)
+scale = Vector2(1.55467, 1.32119)
 texture = ExtResource("2_gfwov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -42,6 +42,5 @@ target_position = Vector2(25, -24)
 [node name="RayCast2D4" type="RayCast2D" parent="rayfolder"]
 target_position = Vector2(28, 26)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Vision" to="." method="_on_vision_area_entered"]
 [connection signal="area_exited" from="Vision" to="." method="_on_vision_area_exited"]

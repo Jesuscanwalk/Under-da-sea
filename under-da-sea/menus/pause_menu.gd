@@ -8,7 +8,7 @@ func _ready():
 	ui_panel_container.visible = false
 
 func resume():
-	get_tree().pause = false
+	get_tree().paused = false
 	ui_panel_container.visible = false
 
 func pause():

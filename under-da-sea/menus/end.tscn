@@ -28,10 +28,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -184.5
-offset_top = -117.5
-offset_right = 184.5
-offset_bottom = 117.5
+offset_left = -213.5
+offset_top = -122.5
+offset_right = 213.5
+offset_bottom = 122.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -42,7 +42,7 @@ size_flags_horizontal = 4
 [node name="Label" type="Label" parent="UIPanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
-text = "PAUSE"
+text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -63,5 +63,5 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "QUIT"
 
-[connection signal="pressed" from="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer/retry" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

@@ -10,7 +10,6 @@ Label/font_sizes/font_size = 64
 Label/fonts/font = ExtResource("1_7ko8j")
 
 [node name="PauseMenu" type="Control"]
-process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

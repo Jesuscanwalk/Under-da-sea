@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://1f3hioeimvb6" path="res://menus/pause menu.tscn" id="3_2encr"]
 
 [node name="test" type="Node2D"]
+process_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("1_pjuui")]
 position = Vector2(158, 240)

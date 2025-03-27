@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eabi"]
 size = Vector2(105.5, 56)
 
-[node name="Fish" type="Area2D" groups=["Fish"]]
+[node name="Fish" type="CharacterBody2D" groups=["Fish"]]
 script = ExtResource("1_3cgo8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -40,6 +40,3 @@ target_position = Vector2(25, -24)
 
 [node name="RayCast2D4" type="RayCast2D" parent="rayfolder"]
 target_position = Vector2(28, 26)
-
-[connection signal="area_entered" from="Detection_radius" to="." method="_on_vision_area_entered"]
-[connection signal="area_exited" from="Detection_radius" to="." method="_on_vision_area_exited"]

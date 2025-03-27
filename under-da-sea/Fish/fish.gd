@@ -28,11 +28,14 @@ func Fish() -> void:
 		for Fish in FishISee:
 			_avgVel += Fish.vel
 			_avgPos += Fish.position
-			_steeraway -= (Fish.global_position - global_position) * (movv/( global_position - Fish.global_position).length())
-		_avgVel /= _numOffishs
-		vel += (_avgVel - vel)/2
-		_avgPos /= _numOffishs
-		vel += (_avgPos - position)
+			var distance_to_fish = (Fish.global_position - global_position).length()
+			if distance_to_fish < seperation_distance:
+				_steeraway -= (Fish.global_position - global_position).normalized() / distance_to_fish
+			_avgVel /= _numOffishs
+			_avgPos /= _numOffishs
+			vel += (_avgVel - vel) / 2
+			vel += (_avgPos - position) / 100
+			vel += _steeraway * movv
 
 func checkCollision() -> void:
 	for ray in rayfolder:

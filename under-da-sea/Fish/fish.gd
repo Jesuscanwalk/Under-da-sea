@@ -5,7 +5,7 @@ var FishISee := []
 var max_speed = 10
 var vel := Vector2.ZERO
 var speed := 2.0
-var screensize = get_viewport_rect().size 
+@onready var screensize = get_viewport_rect().size 
 var movv := 48
 var direction = Vector2(0, 1)
 var seperation_distance = 20
@@ -33,7 +33,7 @@ func Fish() -> void:
 			_avgVel += Fish.vel
 			_avgPos += Fish.position
 			var distance_to_fish = (Fish.global_position - global_position).length()
-			if distance_to_fish < seperation_distance and distance_to_fish > 0:
+			if distance_to_fish < seperation_distance and distance_to_fish > 0.01:
 				_steeraway -= (Fish.global_position - global_position).normalized() / distance_to_fish
 		_avgVel /= _numOffishs
 		_avgPos /= _numOffishs
@@ -49,24 +49,25 @@ func checkCollision() -> void:
 	for ray in rayfolder:
 		var r: RayCast2D = ray
 		if r.is_colliding():
+			var collider = r.get_collider()
 			if r.get_collider().is_in_group("blocks"):
-				var magi := 100/(r.get_collision_point() - global_position).length_squared()
+				var magi := 100/ (r.get_collision_point() - global_position).length_squared()
 				vel -= (r.cast_to.rotated(rotation) * magi)
 
 
 func move() -> void:
 	global_position += vel
 	if global_position.x < 0:
-		global_position.x += screensize.x
+		global_position.x = screensize.x
 	elif global_position.x > screensize.x:
-		global_position.x -= screensize.x
-	if global_position.y < 0:
-		global_position.y += screensize.y
-	elif global_position.y > screensize.y:
-		global_position.y -= screensize.y
+		global_position.x = 0
+		if global_position.y < 0:
+			global_position.y = screensize.y
+		elif global_position.y > screensize.y:
+				global_position.y = 0
 
 func _on_vision_area_exited(area: Area2D) -> void:
-	if area:
+	if area and area in FishISee:
 		FishISee.erase(area)
 
 func _on_vision_area_entered(area: Area2D) -> void:

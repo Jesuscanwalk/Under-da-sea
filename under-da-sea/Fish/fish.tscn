@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnv6j7ubi85lw"]
+
+[ext_resource type="Script" path="res://Fish/fish.gd" id="1_vvukt"]
+[ext_resource type="Texture2D" uid="uid://daoemsjeh53x0" path="res://Fish/bigtriangle.png" id="2_gfwov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_803s2"]
+size = Vector2(9.5, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eabi"]
+size = Vector2(105.5, 56)
+
+[node name="Fish" type="Area2D" groups=["Fish"]]
+script = ExtResource("1_vvukt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6.18343, -0.543153)
+rotation = -1.54776
+scale = Vector2(1.55467, 1.32119)
+texture = ExtResource("2_gfwov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.25, -1.5)
+shape = SubResource("RectangleShape2D_803s2")
+
+[node name="Vision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+position = Vector2(25, 0)
+shape = SubResource("RectangleShape2D_5eabi")
+
+[node name="rayfolder" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="rayfolder"]
+target_position = Vector2(77, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="rayfolder"]
+target_position = Vector2(45, -13)
+
+[node name="RayCast2D3" type="RayCast2D" parent="rayfolder"]
+target_position = Vector2(25, -24)
+
+[node name="RayCast2D4" type="RayCast2D" parent="rayfolder"]
+target_position = Vector2(28, 26)
+
+[connection signal="area_entered" from="Vision" to="." method="_on_vision_area_entered"]
+[connection signal="area_exited" from="Vision" to="." method="_on_vision_area_exited"]

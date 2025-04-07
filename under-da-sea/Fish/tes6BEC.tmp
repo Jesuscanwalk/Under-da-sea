@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dntxk6awviuiv"]
+
+[ext_resource type="PackedScene" uid="uid://cnv6j7ubi85lw" path="res://Fish/fish.tscn" id="1_nbx32"]
+[ext_resource type="Script" path="res://Fish/test_2.gd" id="1_sggbb"]
+[ext_resource type="PackedScene" uid="uid://bo7xt0xv2cmmo" path="res://tile_map.tscn" id="3_sec8g"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_sggbb")
+num = 30
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="fishfolder" type="Node2D" parent="."]
+position = Vector2(208, 112)
+
+[node name="Fish" parent="fishfolder" instance=ExtResource("1_nbx32")]
+position = Vector2(368, 208)
+
+[node name="TileMap" parent="." instance=ExtResource("3_sec8g")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 328)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

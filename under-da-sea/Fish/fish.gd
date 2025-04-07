@@ -8,7 +8,7 @@ var speed := 5.0
 @onready var screensize = get_viewport_rect().size 
 var movv := 48
 var direction = Vector2(0, 1)
-var seperation_distance = 20
+var seperation_distance = 70.0
 var global_direction := Vector2(1, 0)
 var cohesion_weight := 0.005
 var alignment_weight := 0.05
@@ -73,3 +73,7 @@ func _on_vision_area_exited(area: Area2D) -> void:
 func _on_vision_area_entered(area: Area2D) -> void:
 	if area != self and area.is_in_group("Fish"):
 		FishISee.append(area)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	queue_free()

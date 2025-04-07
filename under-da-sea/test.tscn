@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://7wfdg2ld87r5"]
+[gd_scene load_steps=3 format=3 uid="uid://7wfdg2ld87r5"]
 
 [ext_resource type="PackedScene" uid="uid://cx3yaof1y7gcr" path="res://player/player.tscn" id="1_pjuui"]
-[ext_resource type="PackedScene" uid="uid://rnuiv84gehib" path="res://mob/mob.tscn" id="2_m8ufp"]
 [ext_resource type="PackedScene" uid="uid://1f3hioeimvb6" path="res://menus/pause menu.tscn" id="3_2encr"]
 
 [node name="test" type="Node2D"]
@@ -10,9 +9,10 @@ process_mode = 3
 [node name="Player" parent="." instance=ExtResource("1_pjuui")]
 position = Vector2(158, 240)
 
-[node name="Mob" parent="." instance=ExtResource("2_m8ufp")]
-position = Vector2(973, 408)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_2encr")]
+visible = false
+
+[node name="TileMapLayer" type="TileMap" parent="."]
+format = 2

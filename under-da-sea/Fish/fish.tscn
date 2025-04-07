@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnv6j7ubi85lw"]
 
 [ext_resource type="Script" path="res://Fish/fish.gd" id="1_vvukt"]
-[ext_resource type="Texture2D" uid="uid://daoemsjeh53x0" path="res://Fish/bigtriangle.png" id="2_gfwov"]
+[ext_resource type="Texture2D" uid="uid://qqfffev3tor3" path="res://Fish/fishy2.png" id="2_exkc7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_803s2"]
 size = Vector2(9.5, 7)
@@ -13,10 +13,10 @@ size = Vector2(105.5, 56)
 script = ExtResource("1_vvukt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-6.18343, -0.543153)
-rotation = -1.54776
-scale = Vector2(1.55467, 1.32119)
-texture = ExtResource("2_gfwov")
+position = Vector2(-6.57682, 1.6246)
+rotation = -0.115469
+scale = Vector2(1.00894, 0.939482)
+texture = ExtResource("2_exkc7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.25, -1.5)

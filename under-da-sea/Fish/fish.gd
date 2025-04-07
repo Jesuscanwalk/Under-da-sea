@@ -4,7 +4,7 @@ extends Area2D
 var FishISee := []
 var max_speed = 10
 var vel := Vector2.ZERO
-var speed := 2.0
+var speed := 5.0
 @onready var screensize = get_viewport_rect().size 
 var movv := 48
 var direction = Vector2(0, 1)

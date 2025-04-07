@@ -5,7 +5,7 @@
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_sggbb")
-num = 10
+num = 30
 
 [node name="Timer" type="Timer" parent="."]
 

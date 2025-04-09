@@ -18,8 +18,6 @@ func _ready() -> void:
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 	var direction = Input.get_axis("left", "right")
 	if direction > 0:
 		animated_sprite.flip_h = false
@@ -30,8 +28,6 @@ func _physics_process(delta):
 			animated_sprite.play("idle")
 		else:
 			animated_sprite.play("run")
-	else:
-		animated_sprite.play("jump")
 	if direction:
 		velocity.x = direction * SPEED
 	else:

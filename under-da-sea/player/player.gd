@@ -2,18 +2,40 @@ class_name Player extends CharacterBody2D
 
 @onready var health_bar: ProgressBar = $Control/HealthBar
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@export var SPEED = 400.0
 @export var max_health := 5
+@onready var animated_sprite: AnimatedSprite2D = $AnimationPlayer
+
+const SPEED = 130.0
+const JUMP_VELOCITY = -300.0
 
 var health := max_health: set = set_health
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready() -> void:
 	health_bar.max_value = max_health
 	health_bar.value = health
 
-func _physics_process(delta: float) -> void:
-	var direction := Input.get_vector("left", "right","up", "down")
-	velocity = direction * SPEED
+func _physics_process(delta):
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	var direction = Input.get_axis("left", "right")
+	if direction > 0:
+		animated_sprite.flip_h = false
+	elif direction < 0:
+		animated_sprite.flip_h = true
+	if is_on_floor():
+		if direction == 0:
+			animated_sprite.play("idle")
+		else:
+			animated_sprite.play("run")
+	else:
+		animated_sprite.play("jump")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 
 func set_health(new_health: int) -> void:

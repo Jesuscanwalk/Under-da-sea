@@ -1,10 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx3yaof1y7gcr"]
+[gd_scene load_steps=10 format=3 uid="uid://cx3yaof1y7gcr"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_qf20f"]
-[ext_resource type="Texture2D" uid="uid://bepixin1g1hga" path="res://player/penguin.png" id="2_xunjt"]
+[ext_resource type="Texture2D" uid="uid://b7jcsu20axnbj" path="res://side-Sheet.png" id="2_d0c36"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad4h7"]
+atlas = ExtResource("2_d0c36")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7b88"]
+atlas = ExtResource("2_d0c36")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42axi"]
+atlas = ExtResource("2_d0c36")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0keg2"]
+atlas = ExtResource("2_d0c36")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_atc6j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ad4h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7b88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42axi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0keg2")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xuwma"]
-radius = 45.0444
+radius = 28.0713
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riqx2"]
 bg_color = Color(0.550956, 0.96135, 0.625933, 1)
@@ -21,26 +57,30 @@ corner_radius_bottom_left = 10
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qf20f")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.430469, 0.430469)
-texture = ExtResource("2_xunjt")
+[node name="AnimationPlayer" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -28)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_atc6j")
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 23)
+position = Vector2(4, 1)
 shape = SubResource("CircleShape2D_xuwma")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 35.0
+offset_bottom = 30.0
 
 [node name="HealthBar" type="ProgressBar" parent="Control"]
 layout_mode = 0
-offset_left = -53.0
-offset_top = -82.0
-offset_right = 53.0
-offset_bottom = -66.0
+offset_left = -46.0
+offset_top = -71.0
+offset_right = 60.0
+offset_bottom = -55.0
 pivot_offset = Vector2(60, -30)
 theme_override_styles/fill = SubResource("StyleBoxFlat_riqx2")
 max_value = 3.0

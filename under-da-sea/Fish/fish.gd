@@ -5,7 +5,7 @@ var FishISee := []
 var max_speed = 10
 var vel := Vector2.ZERO
 var speed := 5.0
-@onready var screensize = get_viewport_rect().size 
+#@onready var screensize = get_viewport_rect().size 
 var movv := 48
 var direction = Vector2(0, 1)
 var seperation_distance = 70.0
@@ -17,6 +17,9 @@ var direction_influence := 0.02
 var drift_strength := 0.1
 var min_separation_distance := 10.0
 
+func get_screensize():
+	return get_viewport_rect().size
+	
 func _process(_delta: float) -> void:
 	Fish()
 	checkCollision()
@@ -58,12 +61,12 @@ func checkCollision() -> void:
 func move() -> void:
 	global_position += vel
 	if global_position.x < 0:
-		global_position.x = screensize.x
-	elif global_position.x > screensize.x:
+		global_position.x = get_screensize().x
+	elif global_position.x > get_screensize().x:
 		global_position.x = 0
 		if global_position.y < 0:
-			global_position.y = screensize.y
-		elif global_position.y > screensize.y:
+			global_position.y = get_screensize().y
+		elif global_position.y > get_screensize().y:
 				global_position.y = 0
 
 func _on_vision_area_exited(area: Area2D) -> void:

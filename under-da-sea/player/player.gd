@@ -20,9 +20,9 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	var direction = Input.get_axis("left", "right")
 	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
 		animated_sprite.flip_h = true
+	elif direction < 0:
+		animated_sprite.flip_h = false
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("idle")

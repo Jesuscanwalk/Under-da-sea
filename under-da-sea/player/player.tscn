@@ -1,7 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cx3yaof1y7gcr"]
+[gd_scene load_steps=11 format=3 uid="uid://cx3yaof1y7gcr"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_qf20f"]
 [ext_resource type="Texture2D" uid="uid://b7jcsu20axnbj" path="res://player/side-Sheet.png" id="2_d0c36"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb4lp"]
+atlas = ExtResource("2_d0c36")
+region = Rect2(0, 0, 640, 640)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ad4h7"]
 atlas = ExtResource("2_d0c36")
@@ -23,6 +27,14 @@ region = Rect2(1920, 0, 640, 640)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xb4lp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ad4h7")
 }, {
 "duration": 1.0,
@@ -40,7 +52,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xuwma"]
-radius = 12.0416
+radius = 9.43398
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riqx2"]
 bg_color = Color(0.550956, 0.96135, 0.625933, 1)
@@ -59,22 +71,21 @@ position = Vector2(0, 3)
 script = ExtResource("1_qf20f")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="."]
-position = Vector2(-5, -14)
-scale = Vector2(0.103125, 0.103125)
+position = Vector2(-2, -7)
+scale = Vector2(0.0859375, 0.084375)
 sprite_frames = SubResource("SpriteFrames_atc6j")
-animation = &"run"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 1)
+position = Vector2(1, 2)
 shape = SubResource("CircleShape2D_xuwma")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -5.0
-offset_top = -10.0
-offset_right = 35.0
-offset_bottom = 30.0
+offset_top = -3.0
+offset_right = 40.0
+offset_bottom = 37.0
 
 [node name="HealthBar" type="ProgressBar" parent="Control"]
 layout_mode = 0

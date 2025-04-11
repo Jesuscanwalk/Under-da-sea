@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://rnuiv84gehib"]
+
+[ext_resource type="Texture2D" uid="uid://bogfaj6ybiin0" path="res://icon.svg" id="1_0glb4"]
+[ext_resource type="Script" path="res://mob/mob.gd" id="1_lqw1b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykmop"]
+size = Vector2(127, 125)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fatr0"]
+radius = 226.797
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eagxg"]
+size = Vector2(140, 132)
+
+[node name="Mob" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_lqw1b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0glb4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_ykmop")
+debug_color = Color(0.73755, 0.40624, 0.61582, 0.42)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_fatr0")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_eagxg")
+debug_color = Color(0.808213, 0.33409, 0.630594, 0.42)
+
+[node name="DamageTimer" type="Timer" parent="."]

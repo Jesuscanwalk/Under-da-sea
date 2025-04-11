@@ -1,46 +1,47 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnv6j7ubi85lw"]
 
 [ext_resource type="Script" path="res://Fish/fish.gd" id="1_vvukt"]
-[ext_resource type="Texture2D" uid="uid://daoemsjeh53x0" path="res://Fish/bigtriangle.png" id="2_gfwov"]
+[ext_resource type="Texture2D" uid="uid://d4trt17e45oi" path="res://Fish/fishy3.png" id="2_utngr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_803s2"]
-size = Vector2(9.5, 7)
+size = Vector2(41, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eabi"]
-size = Vector2(105.5, 56)
+size = Vector2(245, 133)
 
 [node name="Fish" type="Area2D" groups=["Fish"]]
 script = ExtResource("1_vvukt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-6.18343, -0.543153)
-rotation = -1.54776
-scale = Vector2(1.55467, 1.32119)
-texture = ExtResource("2_gfwov")
+position = Vector2(-35, -11)
+rotation = -3.13239
+scale = Vector2(0.917433, 1.07516)
+texture = ExtResource("2_utngr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.25, -1.5)
+position = Vector2(-7.5, 1)
 shape = SubResource("RectangleShape2D_803s2")
 
 [node name="Vision" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
-position = Vector2(25, 0)
+position = Vector2(39.5, -2.5)
 shape = SubResource("RectangleShape2D_5eabi")
 
 [node name="rayfolder" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="rayfolder"]
-target_position = Vector2(77, 0)
+target_position = Vector2(147, 0)
 
 [node name="RayCast2D2" type="RayCast2D" parent="rayfolder"]
-target_position = Vector2(45, -13)
+target_position = Vector2(94, -43)
 
 [node name="RayCast2D3" type="RayCast2D" parent="rayfolder"]
-target_position = Vector2(25, -24)
+target_position = Vector2(56, -62)
 
 [node name="RayCast2D4" type="RayCast2D" parent="rayfolder"]
-target_position = Vector2(28, 26)
+target_position = Vector2(90, 57)
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Vision" to="." method="_on_vision_area_entered"]
 [connection signal="area_exited" from="Vision" to="." method="_on_vision_area_exited"]

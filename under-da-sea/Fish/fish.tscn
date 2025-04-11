@@ -13,9 +13,9 @@ size = Vector2(245, 133)
 script = ExtResource("1_vvukt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-35, -11)
+position = Vector2(-12, -2)
 rotation = -3.13239
-scale = Vector2(0.917433, 1.07516)
+scale = Vector2(0.136213, 0.222028)
 texture = ExtResource("2_utngr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

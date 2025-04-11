@@ -16,11 +16,6 @@ autostart = true
 [node name="Fish" parent="fishfolder" instance=ExtResource("1_nbx32")]
 position = Vector2(368, 208)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 328)
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
 [node name="Player" parent="." instance=ExtResource("3_71ege")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -6,6 +6,7 @@
 radius = 9.43398
 
 [node name="WaterDetection" type="Area2D"]
+collision_layer = 0
 script = ExtResource("1_i33g1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

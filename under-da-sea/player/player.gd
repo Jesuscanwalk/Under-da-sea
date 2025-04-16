@@ -23,8 +23,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		if(!is_in_water):
 			velocity.y += gravity * delta
+			animated_sprite.play("jump")
 		else:
 			velocity.y = clampf(velocity.y + (gravity * delta * SWIM_GRAVITY), -10000, SWIM_VELOCITY)
+			animated_sprite.play("swim")
 	if Input.is_action_just_pressed("up"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY

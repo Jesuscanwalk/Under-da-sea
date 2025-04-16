@@ -1,10 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cx3yaof1y7gcr"]
+[gd_scene load_steps=17 format=3 uid="uid://cx3yaof1y7gcr"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_qf20f"]
 [ext_resource type="Texture2D" uid="uid://ck3h7eff6lo0e" path="res://player/sprite-Sheet.png" id="2_khcjy"]
 [ext_resource type="PackedScene" uid="uid://chey3nfyptsk6" path="res://water/water_detection.tscn" id="3_101xf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsn3y"]
+atlas = ExtResource("2_khcjy")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n82ke"]
 atlas = ExtResource("2_khcjy")
 region = Rect2(0, 0, 512, 512)
 
@@ -52,6 +56,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_n82ke")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rquqv")
 }, {
 "duration": 1.0,
@@ -82,7 +94,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"swim",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xuwma"]
@@ -109,8 +121,7 @@ script = ExtResource("1_qf20f")
 position = Vector2(-2, -7)
 scale = Vector2(0.0859375, 0.084375)
 sprite_frames = SubResource("SpriteFrames_atc6j")
-animation = &"run"
-frame_progress = 0.626264
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xuwma")

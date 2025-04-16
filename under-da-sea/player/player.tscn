@@ -1,34 +1,50 @@
-[gd_scene load_steps=12 format=3 uid="uid://cx3yaof1y7gcr"]
+[gd_scene load_steps=16 format=3 uid="uid://cx3yaof1y7gcr"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_qf20f"]
-[ext_resource type="Texture2D" uid="uid://b7jcsu20axnbj" path="res://player/side-Sheet.png" id="2_d0c36"]
+[ext_resource type="Texture2D" uid="uid://ck3h7eff6lo0e" path="res://player/sprite-Sheet.png" id="2_khcjy"]
 [ext_resource type="PackedScene" uid="uid://chey3nfyptsk6" path="res://water/water_detection.tscn" id="3_101xf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xb4lp"]
-atlas = ExtResource("2_d0c36")
-region = Rect2(0, 0, 640, 640)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsn3y"]
+atlas = ExtResource("2_khcjy")
+region = Rect2(0, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ad4h7"]
-atlas = ExtResource("2_d0c36")
-region = Rect2(0, 0, 640, 640)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rquqv"]
+atlas = ExtResource("2_khcjy")
+region = Rect2(0, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7b88"]
-atlas = ExtResource("2_d0c36")
-region = Rect2(640, 0, 640, 640)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg62p"]
+atlas = ExtResource("2_khcjy")
+region = Rect2(512, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_42axi"]
-atlas = ExtResource("2_d0c36")
-region = Rect2(1280, 0, 640, 640)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cpa5"]
+atlas = ExtResource("2_khcjy")
+region = Rect2(1024, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0keg2"]
-atlas = ExtResource("2_d0c36")
-region = Rect2(1920, 0, 640, 640)
+[sub_resource type="AtlasTexture" id="AtlasTexture_77um6"]
+atlas = ExtResource("2_khcjy")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ax5a"]
+atlas = ExtResource("2_khcjy")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttbw6"]
+atlas = ExtResource("2_khcjy")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjgvd"]
+atlas = ExtResource("2_khcjy")
+region = Rect2(3072, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb2fg"]
+atlas = ExtResource("2_khcjy")
+region = Rect2(3584, 0, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_atc6j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xb4lp")
+"texture": SubResource("AtlasTexture_nsn3y")
 }],
 "loop": true,
 "name": &"idle",
@@ -36,24 +52,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ad4h7")
+"texture": SubResource("AtlasTexture_rquqv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k7b88")
+"texture": SubResource("AtlasTexture_xg62p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_42axi")
+"texture": SubResource("AtlasTexture_4cpa5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0keg2")
+"texture": SubResource("AtlasTexture_77um6")
 }],
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ax5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttbw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjgvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb2fg")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xuwma"]
-radius = 9.43398
+radius = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riqx2"]
 bg_color = Color(0.550956, 0.96135, 0.625933, 1)
@@ -76,10 +109,10 @@ script = ExtResource("1_qf20f")
 position = Vector2(-2, -7)
 scale = Vector2(0.0859375, 0.084375)
 sprite_frames = SubResource("SpriteFrames_atc6j")
-animation = &"idle"
+animation = &"run"
+frame_progress = 0.626264
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 2)
 shape = SubResource("CircleShape2D_xuwma")
 
 [node name="Control" type="Control" parent="."]
@@ -102,6 +135,7 @@ value = 3.0
 show_percentage = false
 
 [node name="WaterDetection" parent="." instance=ExtResource("3_101xf")]
+position = Vector2(-1, -2)
 collision_layer = 1
 
 [connection signal="water_state_changed" from="WaterDetection" to="." method="_on_water_detection_water_state_changed"]

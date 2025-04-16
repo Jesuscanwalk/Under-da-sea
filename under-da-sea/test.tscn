@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://7wfdg2ld87r5"]
+[gd_scene load_steps=10 format=4 uid="uid://7wfdg2ld87r5"]
 
 [ext_resource type="PackedScene" uid="uid://cx3yaof1y7gcr" path="res://player/player.tscn" id="1_pjuui"]
 [ext_resource type="Script" path="res://test.gd" id="1_rt6y5"]
 [ext_resource type="PackedScene" uid="uid://1f3hioeimvb6" path="res://menus/pause menu.tscn" id="3_2encr"]
 [ext_resource type="Texture2D" uid="uid://b7b25hc2d8itu" path="res://Lands2.png" id="3_8w17r"]
 [ext_resource type="PackedScene" uid="uid://cnv6j7ubi85lw" path="res://Fish/fish.tscn" id="4_piqol"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nvpt5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rhee"]
 texture = ExtResource("3_8w17r")
@@ -15,16 +17,20 @@ texture = ExtResource("3_8w17r")
 4:0/0 = 0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:0/0 = 0
-6:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_wf07n"]
 physics_layer_0/collision_layer = 1
-physics_layer_1/collision_layer = 2
+physics_layer_0/collision_mask = 2
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_nvpt5")
 sources/0 = SubResource("TileSetAtlasSource_0rhee")
 
-[node name="test" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_loa76"]
+size = Vector2(2280, 1688)
+
+[node name="test" type="Node2D" node_paths=PackedStringArray("fishSpawnArea")]
 process_mode = 3
 script = ExtResource("1_rt6y5")
+fishSpawnArea = NodePath("fishfolder/Area2D/FishSpawnShape")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(160, -18)
@@ -33,6 +39,8 @@ tile_set = SubResource("TileSet_wf07n")
 
 [node name="Player" parent="." instance=ExtResource("1_pjuui")]
 position = Vector2(178, 321)
+collision_layer = 2
+collision_mask = 5
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(5, 5)
@@ -47,6 +55,15 @@ visible = false
 [node name="fishfolder" type="Node2D" parent="."]
 
 [node name="Fish" parent="fishfolder" instance=ExtResource("4_piqol")]
-position = Vector2(680, 840)
+position = Vector2(1039, 1158)
+
+[node name="Area2D" type="Area2D" parent="fishfolder"]
+position = Vector2(1280, 1216)
+collision_layer = 0
+collision_mask = 4
+
+[node name="FishSpawnShape" type="CollisionShape2D" parent="fishfolder/Area2D"]
+shape = SubResource("RectangleShape2D_loa76")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_shape_exited" from="fishfolder/Area2D" to="." method="_on_area_2d_area_shape_exited"]

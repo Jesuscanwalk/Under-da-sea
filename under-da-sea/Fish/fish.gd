@@ -4,7 +4,7 @@ extends Area2D
 var FishISee := []
 var max_speed = 10
 var vel := Vector2.ZERO
-var speed := 5.0
+@export var speed := 5.0
 #@onready var screensize = get_viewport_rect().size 
 var movv := 48
 var direction = Vector2(0, 1)
@@ -19,7 +19,7 @@ var min_separation_distance := 10.0
 
 func get_screensize():
 	return get_viewport_rect().size
-	
+
 func _process(_delta: float) -> void:
 	Fish()
 	checkCollision()
@@ -64,10 +64,10 @@ func move() -> void:
 		global_position.x = get_screensize().x
 	elif global_position.x > get_screensize().x:
 		global_position.x = 0
-		if global_position.y < 0:
-			global_position.y = get_screensize().y
-		elif global_position.y > get_screensize().y:
-				global_position.y = 0
+	if global_position.y < 0:
+		global_position.y = get_screensize().y
+	elif global_position.y > get_screensize().y:
+		global_position.y = 0
 
 func _on_vision_area_exited(area: Area2D) -> void:
 	if area and area in FishISee:
@@ -76,7 +76,6 @@ func _on_vision_area_exited(area: Area2D) -> void:
 func _on_vision_area_entered(area: Area2D) -> void:
 	if area != self and area.is_in_group("Fish"):
 		FishISee.append(area)
-
 
 func _on_body_entered(body: Node2D) -> void:
 	queue_free()

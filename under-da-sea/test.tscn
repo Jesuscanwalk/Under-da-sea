@@ -18,8 +18,8 @@ texture = ExtResource("3_8w17r")
 
 [sub_resource type="TileSet" id="TileSet_wf07n"]
 physics_layer_0/collision_layer = 1
-physics_layer_1/collision_layer = 0
-physics_layer_1/collision_mask = 2
+physics_layer_1/collision_layer = 2
+physics_layer_1/collision_mask = 0
 custom_data_layer_0/name = "water"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_0rhee")

@@ -63,4 +63,4 @@ func die() -> void:
 
 func _on_water_detection_water_state_changed(is_in_water):
 	self.is_in_water = is_in_water
-	print("is in water")
+	print(is_in_water)

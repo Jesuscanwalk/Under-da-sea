@@ -135,7 +135,6 @@ corner_radius_bottom_left = 10
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, 3)
-collision_mask = 3
 script = ExtResource("1_qf20f")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="."]

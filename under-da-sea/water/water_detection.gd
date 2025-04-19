@@ -2,7 +2,7 @@ extends Area2D
 
 signal water_state_changed(is_in_water : bool)
 
-var is_in_water = false;
+var is_in_water : bool = false;
 
 func _on_body_entered(body):
 	if(is_in_water == false):

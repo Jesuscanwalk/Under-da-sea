@@ -6,10 +6,10 @@ class_name Player extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimationPlayer
 
 @export var SPEED : float = 130.0
-@export var JUMP_VELOCITY : float = -150
+@export var JUMP_VELOCITY : float = -250
 @export var SWIM_GRAVITY : float = 0.25
 @export var SWIM_VELOCITY : float = 80
-@export var SWIM_JUMP : float = -150
+@export var SWIM_JUMP : float = -200
 
 var health := max_health: set = set_health
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

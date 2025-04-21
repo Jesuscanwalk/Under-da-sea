@@ -155,13 +155,11 @@ offset_right = 40.0
 offset_bottom = 37.0
 
 [node name="HealthBar" type="ProgressBar" parent="Control"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -5.0
-offset_right = 34.0
-grow_vertical = 0
+layout_mode = 0
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 18.0
+offset_bottom = -16.0
 pivot_offset = Vector2(48, -11)
 theme_override_styles/fill = SubResource("StyleBoxFlat_riqx2")
 max_value = 3.0

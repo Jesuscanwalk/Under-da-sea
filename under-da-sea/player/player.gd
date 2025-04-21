@@ -6,7 +6,7 @@ class_name Player extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimationPlayer
 
 @export var SPEED : float = 130.0
-@export var JUMP_VELOCITY : float = -5.0
+@export var JUMP_VELOCITY : float = -150
 @export var SWIM_GRAVITY : float = 0.25
 @export var SWIM_VELOCITY : float = 80
 @export var SWIM_JUMP : float = -150

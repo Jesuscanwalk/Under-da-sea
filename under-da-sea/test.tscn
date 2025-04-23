@@ -24,8 +24,8 @@ physics_layer_0/collision_mask = 2
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_nvpt5")
 sources/0 = SubResource("TileSetAtlasSource_0rhee")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_loa76"]
-size = Vector2(2280, 1688)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w2t7"]
+size = Vector2(2264, 1696)
 
 [node name="test" type="Node2D" node_paths=PackedStringArray("fishSpawnArea")]
 process_mode = 3
@@ -63,7 +63,8 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="FishSpawnShape" type="CollisionShape2D" parent="fishfolder/Area2D"]
-shape = SubResource("RectangleShape2D_loa76")
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_8w2t7")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_shape_exited" from="fishfolder/Area2D" to="." method="_on_area_2d_area_shape_exited"]

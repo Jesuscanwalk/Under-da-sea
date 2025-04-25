@@ -1,8 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://cx3yaof1y7gcr"]
+[gd_scene load_steps=22 format=3 uid="uid://cx3yaof1y7gcr"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_qf20f"]
 [ext_resource type="Texture2D" uid="uid://3u4vxkk1jq2c" path="res://player/sprite2-Sheet.png" id="2_wsiwp"]
 [ext_resource type="PackedScene" uid="uid://chey3nfyptsk6" path="res://water/water_detection.tscn" id="3_101xf"]
+[ext_resource type="Texture2D" uid="uid://c7cpgy60d1wpd" path="res://map/white.png" id="4_ku0ea"]
+[ext_resource type="Texture2D" uid="uid://c42vls4bb5v10" path="res://map/water.png" id="5_b2u4a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ab4fl"]
 atlas = ExtResource("2_wsiwp")
@@ -165,6 +167,16 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_riqx2")
 max_value = 3.0
 value = 3.0
 show_percentage = false
+
+[node name="StaminaBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -27.0
+offset_right = 18.0
+offset_bottom = -24.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_ku0ea")
+texture_progress = ExtResource("5_b2u4a")
 
 [node name="WaterDetection" parent="." instance=ExtResource("3_101xf")]
 position = Vector2(-1, -2)

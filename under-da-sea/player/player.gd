@@ -10,7 +10,11 @@ class_name Player extends CharacterBody2D
 @export var SWIM_GRAVITY : float = 0.25
 @export var SWIM_VELOCITY : float = 80
 @export var SWIM_JUMP : float = -200
-
+@onready var stamina = $Control/StaminaBar
+var can_regen = false
+var time_to_wait = 1.5
+var s_timer = 0
+var can_start_stimer = true 
 var health := max_health: set = set_health
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_in_water : bool = false
@@ -18,6 +22,7 @@ var is_in_water : bool = false
 func _ready() -> void:
 	health_bar.max_value = max_health
 	health_bar.value = health
+	stamina.value = stamina.max_value
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -47,7 +52,28 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-
+	if can_regen == false && stamina.value != 100 or stamina.value == 0:
+		can_start_stimer = true
+		if can_start_stimer:
+			s_timer += delta
+			if s_timer >= time_to_wait:
+				can_regen = true
+				can_start_stimer = false
+				s_timer = false
+	if stamina.value == 100:
+		can_regen = false
+	if can_regen == true:
+		stamina.value += 0.5
+		can_start_stimer = false
+		s_timer = 0
+	if is_in_water:
+		stamina.value -= 1
+		can_regen = false 
+		s_timer = 0
+	if stamina.value == 0:
+		die()
+	if is_on_floor():
+		can_regen = true
 func set_health(new_health: int) -> void:
 	var previous_health := health
 	health = clampi(new_health, 0, max_health)

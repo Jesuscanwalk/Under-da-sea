@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var HeartsContainer = $CanvasLayer/HeartsContainer
+@onready var player = $Player
+
 @export var num := 100
 @export var min := 80
 @export var max := 120
@@ -13,6 +16,7 @@ var num_fish = 100;
 
 func _process(delta: float) -> void:
 	screensize = get_viewport_rect().size
+
 func _ready() -> void:
 	num_fish = randi_range(min, max)
 	print(num_fish)
@@ -22,6 +26,10 @@ func _ready() -> void:
 		var group_center = Vector2(randf_range(0, screensize.x), randf_range(0, screensize.y))
 		for j in range(fish_per_group):
 			var random_offset = Vector2(randf_range(-group_radius, group_radius), randf_range(-group_radius, group_radius))
+
+	HeartsContainer.setMaxHearts(player.max_health)
+	HeartsContainer.updateHearts(player.currentHealth)
+	player.healthChanged.connect(HeartsContainer.updateHearts)
 
 func spawnFish():
 	var fish : Area2D = preload("res://Fish/fish.tscn").instantiate()

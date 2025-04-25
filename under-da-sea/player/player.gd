@@ -1,6 +1,5 @@
 class_name Player extends CharacterBody2D
 
-@onready var health_bar: ProgressBar = $Control/HealthBar
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @export var max_health := 5
 @onready var animated_sprite: AnimatedSprite2D = $AnimationPlayer
@@ -16,8 +15,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_in_water : bool = false
 
 func _ready() -> void:
-	health_bar.max_value = max_health
-	health_bar.value = health
+	#health_bar.max_value = max_health
+	#health_bar.value = health
+	pass
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -51,7 +51,7 @@ func _physics_process(delta):
 func set_health(new_health: int) -> void:
 	var previous_health := health
 	health = clampi(new_health, 0, max_health)
-	health_bar.value = health
+	#health_bar.value = health
 	if health == 0:
 		die()
 

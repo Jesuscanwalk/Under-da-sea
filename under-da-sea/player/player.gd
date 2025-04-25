@@ -64,3 +64,7 @@ func die() -> void:
 func _on_water_detection_water_state_changed(is_in_water):
 	self.is_in_water = is_in_water
 	print(is_in_water)
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

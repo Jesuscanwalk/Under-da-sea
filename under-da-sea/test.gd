@@ -3,7 +3,7 @@ extends Node2D
 @export var num := 100
 @export var min := 80
 @export var max := 120
-@export var prefab : PackedScene
+@export var prefab : PackedScene 
 @export var fishSpawnArea : CollisionShape2D
 #@export var spawn_positions : Array = [
 #	Vector2(-1, 23),

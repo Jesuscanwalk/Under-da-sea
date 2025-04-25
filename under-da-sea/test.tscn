@@ -27,10 +27,11 @@ sources/0 = SubResource("TileSetAtlasSource_0rhee")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w2t7"]
 size = Vector2(2264, 1696)
 
-[node name="test" type="Node2D" node_paths=PackedStringArray("fishSpawnArea")]
+[node name="test" type="Node2D" node_paths=PackedStringArray("fishSpawnArea", "SpawnCollisionShape")]
 process_mode = 3
 script = ExtResource("1_rt6y5")
 fishSpawnArea = NodePath("fishfolder/Area2D/FishSpawnShape")
+SpawnCollisionShape = NodePath("fishfolder/Area2D/FishSpawnShape")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(160, -18)

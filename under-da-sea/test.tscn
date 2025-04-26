@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://7wfdg2ld87r5"]
+[gd_scene load_steps=10 format=4 uid="uid://7wfdg2ld87r5"]
 
 [ext_resource type="PackedScene" uid="uid://cx3yaof1y7gcr" path="res://player/player.tscn" id="1_pjuui"]
 [ext_resource type="Script" path="res://test.gd" id="1_rt6y5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7b25hc2d8itu" path="res://map/Lands2.png" id="3_8w17r"]
 [ext_resource type="PackedScene" uid="uid://cnv6j7ubi85lw" path="res://Fish/fish.tscn" id="4_piqol"]
 [ext_resource type="PackedScene" uid="uid://c8fnv6um65h85" path="res://bars/hearts_container.tscn" id="6_ascy7"]
+[ext_resource type="PackedScene" uid="uid://rnuiv84gehib" path="res://mob/mob.tscn" id="7_bkfj6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rhee"]
 texture = ExtResource("3_8w17r")
@@ -51,5 +52,8 @@ visible = false
 
 [node name="Fish" parent="fishfolder" instance=ExtResource("4_piqol")]
 position = Vector2(680, 840)
+
+[node name="Mob" parent="." instance=ExtResource("7_bkfj6")]
+position = Vector2(274, 341)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

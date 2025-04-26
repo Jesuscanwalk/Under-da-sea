@@ -28,8 +28,8 @@ func _ready() -> void:
 			var random_offset = Vector2(randf_range(-group_radius, group_radius), randf_range(-group_radius, group_radius))
 
 	HeartsContainer.setMaxHearts(player.max_health)
-	HeartsContainer.updateHearts(player.currentHealth)
-	player.healthChanged.connect(HeartsContainer.updateHearts)
+	HeartsContainer.updateHearts(player.current_health)
+	player.health_changed.connect(HeartsContainer.updateHearts)
 
 func spawnFish():
 	var fish : Area2D = preload("res://Fish/fish.tscn").instantiate()

@@ -70,6 +70,6 @@ func _on_water_detection_water_state_changed(is_in_water):
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.name == "HitBox":
 		current_health -= 1
-		if current_health < 0:
+	if current_health <= 0:
 			die()
 	health_changed.emit(current_health)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cx3yaof1y7gcr"]
+[gd_scene load_steps=19 format=3 uid="uid://cx3yaof1y7gcr"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_qf20f"]
 [ext_resource type="Texture2D" uid="uid://3u4vxkk1jq2c" path="res://player/sprite2-Sheet.png" id="2_wsiwp"]
@@ -121,18 +121,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_xuwma"]
 radius = 8.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riqx2"]
-bg_color = Color(0.550956, 0.96135, 0.625933, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, 3)
 script = ExtResource("1_qf20f")
@@ -147,26 +135,14 @@ frame_progress = 0.239406
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xuwma")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_top = -3.0
-offset_right = 40.0
-offset_bottom = 37.0
-
-[node name="HealthBar" type="ProgressBar" parent="Control"]
-layout_mode = 0
-offset_left = -16.0
-offset_top = -21.0
-offset_right = 18.0
-offset_bottom = -16.0
-pivot_offset = Vector2(48, -11)
-theme_override_styles/fill = SubResource("StyleBoxFlat_riqx2")
-max_value = 3.0
-value = 3.0
-show_percentage = false
-
 [node name="WaterDetection" parent="." instance=ExtResource("3_101xf")]
 position = Vector2(-1, -2)
 
+[node name="HurtBox" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_xuwma")
+
 [connection signal="water_state_changed" from="WaterDetection" to="." method="_on_water_detection_water_state_changed"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

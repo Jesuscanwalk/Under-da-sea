@@ -4,23 +4,27 @@
 [ext_resource type="Script" path="res://mob/mob.gd" id="1_lqw1b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykmop"]
-size = Vector2(127, 125)
+size = Vector2(43, 41.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fatr0"]
-radius = 226.797
+radius = 75.2396
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eagxg"]
-size = Vector2(140, 132)
+size = Vector2(42.5, 40)
 
 [node name="Mob" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_lqw1b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6.25, -21.75)
+scale = Vector2(0.347656, 0.347656)
 texture = ExtResource("1_0glb4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.5)
+position = Vector2(-7, -25)
 shape = SubResource("RectangleShape2D_ykmop")
 debug_color = Color(0.73755, 0.40624, 0.61582, 0.42)
 
@@ -28,12 +32,13 @@ debug_color = Color(0.73755, 0.40624, 0.61582, 0.42)
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(-4, -22)
 shape = SubResource("CircleShape2D_fatr0")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-2, 0)
+position = Vector2(-5, -25)
 shape = SubResource("RectangleShape2D_eagxg")
 debug_color = Color(0.808213, 0.33409, 0.630594, 0.42)
 

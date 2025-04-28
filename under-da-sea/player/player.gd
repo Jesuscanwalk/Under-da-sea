@@ -18,8 +18,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_in_water : bool = false
 
 func _ready() -> void:
-	#health_bar.max_value = max_health
-	#health_bar.value = health
 	pass
 
 func _physics_process(delta):
@@ -61,7 +59,6 @@ func handle_collision():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-		print_debug(collider.name)
 
 func _on_water_detection_water_state_changed(is_in_water):
 	self.is_in_water = is_in_water
@@ -70,6 +67,6 @@ func _on_water_detection_water_state_changed(is_in_water):
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.name == "HitBox":
 		current_health -= 1
-	if current_health <= 0:
+	if current_health == 0:
 			die()
 	health_changed.emit(current_health)

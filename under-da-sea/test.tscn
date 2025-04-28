@@ -30,6 +30,7 @@ size = Vector2(2264, 1696)
 [node name="test" type="Node2D" node_paths=PackedStringArray("fishSpawnArea", "SpawnCollisionShape")]
 process_mode = 3
 script = ExtResource("1_rt6y5")
+prefab = ExtResource("4_piqol")
 fishSpawnArea = NodePath("fishfolder/Area2D/FishSpawnShape")
 SpawnCollisionShape = NodePath("fishfolder/Area2D/FishSpawnShape")
 
@@ -60,7 +61,7 @@ position = Vector2(1039, 1158)
 
 [node name="Area2D" type="Area2D" parent="fishfolder"]
 position = Vector2(1280, 1216)
-collision_layer = 0
+collision_layer = 4
 collision_mask = 4
 
 [node name="FishSpawnShape" type="CollisionShape2D" parent="fishfolder/Area2D"]
@@ -68,4 +69,4 @@ position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_8w2t7")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_shape_exited" from="fishfolder/Area2D" to="." method="_on_area_2d_area_shape_exited"]
+[connection signal="area_exited" from="fishfolder/Area2D" to="." method="_on_area_2d_area_exited"]

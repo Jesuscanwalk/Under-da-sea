@@ -13,7 +13,6 @@ extends Node2D
 #]
 @export var SpawnCollisionShape : CollisionShape2D
 @export var margin := 80
-
 var screensize = get_viewport_rect().size 
 var num_groups = 5
 var fish_per_group = 10
@@ -33,7 +32,6 @@ func _ready() -> void:
 		var group_center = Vector2(randf_range(0, screensize.x), randf_range(0, screensize.y))
 		for j in range(fish_per_group):
 			var random_offset = Vector2(randf_range(-group_radius, group_radius), randf_range(-group_radius, group_radius))
-	add_children_at_corners(prefab, get_global_rect(SpawnCollisionShape))
 	for i in range(0, 20):
 		var object = prefab.instantiate()
 		object.global_position = get_spawn_point_global(SpawnCollisionShape)
@@ -62,8 +60,7 @@ func _draw() -> void:
 	var start = fishSpawnArea.position - fishSpawnArea.shape.get_rect().size/2
 	var end = fishSpawnArea.position - fishSpawnArea.shape.get_rect().size/2
 	draw_rect(Rect2(start, end-start), Color.RED, true)
-#func _on_area_2d_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	#if area.is_in_group("Fish"):
+
 
 func get_spawn_point_global(collisionShape: CollisionShape2D) -> Vector2:
 	var fishSpawnAreaRect = get_global_rect(collisionShape)
@@ -77,25 +74,7 @@ func get_global_rect(collisionShape: CollisionShape2D) -> Rect2:
 	var global_end =  collisionShape.to_global(shapeRect.end)
 	return Rect2(global_pos, global_end - global_pos)
 
-func add_children_at_corners(scene:PackedScene, rect:Rect2) -> void:
-	var TL = scene.instantiate()
-	change_color(TL, Color.RED)
-	TL.global_position = rect.position
-	var BL = scene.instantiate()
-	change_color(BL, Color.BLUE)
-	BL.global_position = rect.position
-	var TR = scene.instantiate()
-	change_color(TR, Color.GREEN)
-	TR.global_position = rect.position
-	var BR = scene.instantiate()
-	change_color(BR, Color.MAGENTA)
-	BR.global_position = rect.end
-	add_child(TL)
-	add_child(BL)
-	add_child(TR)
-	add_child(BR)
-	pass
 
-func change_color(object: CanvasItem, color: Color) -> void:
-	object.modulate = color
-	pass
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("Fish"):
+		area.queue_free()

@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var HeartsContainer = $CanvasLayer/HeartsContainer
+@onready var player = $Player
+
 @export var num := 100
 @export var min := 80
 @export var max := 120
@@ -32,6 +35,10 @@ func _ready() -> void:
 		#object.global_position = get_spawn_point_global(SpawnCollisionShape)
 		#add_child(object)
 	pass
+
+	HeartsContainer.setMaxHearts(player.max_health)
+	HeartsContainer.updateHearts(player.current_health)
+	player.health_changed.connect(HeartsContainer.updateHearts)
 
 func spawnFish():
 	var fish : Area2D = preload("res://Fish/fish.tscn").instantiate()

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://rnuiv84gehib" path="res://mob/mob.tscn" id="7_bkfj6"]
 [ext_resource type="PackedScene" uid="uid://c5sx50evh10hs" path="res://map/igloo.tscn" id="8_a2qyc"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rhee"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgcn2"]
 texture = ExtResource("3_8w17r")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -23,7 +23,7 @@ texture = ExtResource("3_8w17r")
 [sub_resource type="TileSet" id="TileSet_wf07n"]
 physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 2
-sources/0 = SubResource("TileSetAtlasSource_0rhee")
+sources/0 = SubResource("TileSetAtlasSource_lgcn2")
 
 [node name="test" type="Node2D"]
 process_mode = 3

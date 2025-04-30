@@ -26,6 +26,7 @@ func _process(_delta: float) -> void:
 	vel = vel.normalized() * speed 
 	move()
 	rotation = lerp_angle(rotation, vel. angle_to_point(Vector2.ZERO), 0.4)
+
 func Fish() -> void:
 	if FishISee:
 		var _numOffishs := FishISee.size()

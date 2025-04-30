@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbb3hbjvo0qkd"]
+
+[ext_resource type="Texture2D" uid="uid://bepixin1g1hga" path="res://player/penguin.png" id="1_6cnam"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfgxt"]
+radius = 22.0907
+
+[node name="wife" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1125, 0.1125)
+texture = ExtResource("1_6cnam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tfgxt")

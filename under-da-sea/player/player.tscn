@@ -129,8 +129,7 @@ script = ExtResource("1_qf20f")
 position = Vector2(-2, -7)
 scale = Vector2(0.0859375, 0.084375)
 sprite_frames = SubResource("SpriteFrames_atc6j")
-animation = &"swim"
-frame_progress = 0.239406
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xuwma")
@@ -143,6 +142,9 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_xuwma")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(10, 10)
 
 [connection signal="water_state_changed" from="WaterDetection" to="." method="_on_water_detection_water_state_changed"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

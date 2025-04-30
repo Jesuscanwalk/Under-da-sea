@@ -40,13 +40,9 @@ tile_set = SubResource("TileSet_wf07n")
 [node name="Player" parent="." instance=ExtResource("1_pjuui")]
 position = Vector2(225, 324)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(5, 5)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_2encr")]
-visible = false
 
 [node name="HeartsContainer" parent="CanvasLayer" instance=ExtResource("6_ascy7")]
 

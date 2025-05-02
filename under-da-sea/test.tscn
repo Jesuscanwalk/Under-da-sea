@@ -3,10 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cx3yaof1y7gcr" path="res://player/player.tscn" id="1_pjuui"]
 [ext_resource type="Script" path="res://test.gd" id="1_rt6y5"]
 [ext_resource type="PackedScene" uid="uid://1f3hioeimvb6" path="res://menus/pause menu.tscn" id="3_2encr"]
-[ext_resource type="Texture2D" uid="uid://b7b25hc2d8itu" path="res://map/Lands2.png" id="3_8w17r"]
+[ext_resource type="Texture2D" uid="uid://b7b25hc2d8itu" path="res://Lands2.png" id="3_8w17r"]
 [ext_resource type="PackedScene" uid="uid://cnv6j7ubi85lw" path="res://Fish/fish.tscn" id="4_piqol"]
-[ext_resource type="PackedScene" uid="uid://c8fnv6um65h85" path="res://bars/hearts_container.tscn" id="6_ascy7"]
-[ext_resource type="PackedScene" uid="uid://rnuiv84gehib" path="res://mob/mob.tscn" id="7_bkfj6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nvpt5"]
 
@@ -54,8 +52,6 @@ zoom = Vector2(5, 5)
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_2encr")]
 visible = false
 
-[node name="HeartsContainer" parent="CanvasLayer" instance=ExtResource("6_ascy7")]
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
@@ -72,9 +68,6 @@ collision_mask = 4
 [node name="FishSpawnShape" type="CollisionShape2D" parent="fishfolder/Area2D"]
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_8w2t7")
-
-[node name="Mob" parent="." instance=ExtResource("7_bkfj6")]
-position = Vector2(274, 341)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_exited" from="fishfolder/Area2D" to="." method="_on_area_2d_area_exited"]

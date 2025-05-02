@@ -22,7 +22,7 @@ func _ready() -> void:
 	)
 	hitbox.body_entered.connect(func (body: Node) -> void:
 		if body is Player:
-			body.current_health -= damage
+			body.health -= damage
 			damage_timer.start()
 			)
 	hitbox.body_exited.connect(func (body: Node) -> void:
@@ -30,7 +30,7 @@ func _ready() -> void:
 			damage_timer.stop()
 			)
 	damage_timer.timeout.connect(func () -> void:
-		_player.current_health -= damage
+		_player.health -= damage
 		)
 
 func _physics_process(delta: float) -> void:

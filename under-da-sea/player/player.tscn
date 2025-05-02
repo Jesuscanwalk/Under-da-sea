@@ -1,72 +1,33 @@
-[gd_scene load_steps=19 format=3 uid="uid://cx3yaof1y7gcr"]
+[gd_scene load_steps=11 format=3 uid="uid://cx3yaof1y7gcr"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_qf20f"]
-[ext_resource type="Texture2D" uid="uid://3u4vxkk1jq2c" path="res://player/sprite2-Sheet.png" id="2_wsiwp"]
-[ext_resource type="PackedScene" uid="uid://chey3nfyptsk6" path="res://water/water_detection.tscn" id="3_101xf"]
+[ext_resource type="Texture2D" uid="uid://b7jcsu20axnbj" path="res://player/side-Sheet.png" id="2_d0c36"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ab4fl"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(4608, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb4lp"]
+atlas = ExtResource("2_d0c36")
+region = Rect2(0, 0, 640, 640)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qrc6p"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(5120, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad4h7"]
+atlas = ExtResource("2_d0c36")
+region = Rect2(0, 0, 640, 640)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sce4f"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(5632, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7b88"]
+atlas = ExtResource("2_d0c36")
+region = Rect2(640, 0, 640, 640)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wbqli"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(0, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_42axi"]
+atlas = ExtResource("2_d0c36")
+region = Rect2(1280, 0, 640, 640)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_173tc"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hfu20"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(512, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0q6oy"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(1024, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_svxwt"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(1536, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8qmra"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(2048, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cbicw"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(2560, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0sw5a"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(3072, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s0xw4"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(3584, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5g4wn"]
-atlas = ExtResource("2_wsiwp")
-region = Rect2(4096, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0keg2"]
+atlas = ExtResource("2_d0c36")
+region = Rect2(1920, 0, 640, 640)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_atc6j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ab4fl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qrc6p")
-}, {
-"duration": 1e+06,
-"texture": SubResource("AtlasTexture_sce4f")
+"texture": SubResource("AtlasTexture_xb4lp")
 }],
 "loop": true,
 "name": &"idle",
@@ -74,52 +35,36 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wbqli")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_173tc")
+"texture": SubResource("AtlasTexture_ad4h7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hfu20")
+"texture": SubResource("AtlasTexture_k7b88")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0q6oy")
+"texture": SubResource("AtlasTexture_42axi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_svxwt")
+"texture": SubResource("AtlasTexture_0keg2")
 }],
 "loop": true,
 "name": &"run",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8qmra")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cbicw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0sw5a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s0xw4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5g4wn")
-}],
-"loop": true,
-"name": &"swim",
-"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xuwma"]
-radius = 8.0
+radius = 9.43398
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riqx2"]
+bg_color = Color(0.550956, 0.96135, 0.625933, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, 3)
@@ -129,20 +74,27 @@ script = ExtResource("1_qf20f")
 position = Vector2(-2, -7)
 scale = Vector2(0.0859375, 0.084375)
 sprite_frames = SubResource("SpriteFrames_atc6j")
-animation = &"swim"
-frame_progress = 0.239406
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
 shape = SubResource("CircleShape2D_xuwma")
 
-[node name="WaterDetection" parent="." instance=ExtResource("3_101xf")]
-position = Vector2(-1, -2)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -3.0
+offset_right = 40.0
+offset_bottom = 37.0
 
-[node name="HurtBox" type="Area2D" parent="."]
-collision_mask = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("CircleShape2D_xuwma")
-
-[connection signal="water_state_changed" from="WaterDetection" to="." method="_on_water_detection_water_state_changed"]
-[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 18.0
+offset_bottom = -16.0
+pivot_offset = Vector2(48, -11)
+theme_override_styles/fill = SubResource("StyleBoxFlat_riqx2")
+max_value = 3.0
+value = 3.0
+show_percentage = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://7wfdg2ld87r5"]
+[gd_scene load_steps=10 format=4 uid="uid://7wfdg2ld87r5"]
 
 [ext_resource type="PackedScene" uid="uid://cx3yaof1y7gcr" path="res://player/player.tscn" id="1_pjuui"]
 [ext_resource type="Script" path="res://test.gd" id="1_rt6y5"]
@@ -27,7 +27,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_nvpt5")
 sources/0 = SubResource("TileSetAtlasSource_0rhee")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w2t7"]
-size = Vector2(2160, 1576)
+size = Vector2(2264, 1696)
 
 [node name="test" type="Node2D" node_paths=PackedStringArray("fishSpawnArea", "SpawnCollisionShape")]
 process_mode = 3
@@ -70,11 +70,11 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="FishSpawnShape" type="CollisionShape2D" parent="fishfolder/Area2D"]
-position = Vector2(8, 12)
+position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_8w2t7")
 
 [node name="Mob" parent="." instance=ExtResource("7_bkfj6")]
-position = Vector2(392, 328)
+position = Vector2(274, 341)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_exited" from="fishfolder/Area2D" to="." method="_on_area_2d_area_exited"]

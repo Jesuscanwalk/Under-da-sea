@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crqan2moix324"
-path="res://.godot/imported/Igloo.png-3475fbb0c6a7307cd2ee506c93cc3119.ctex"
+uid="uid://1uumx3utkwwj"
+path="res://.godot/imported/txtbox.png-1b3c879e009e79a52842c4aa3dcb81cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Igloo.png"
-dest_files=["res://.godot/imported/Igloo.png-3475fbb0c6a7307cd2ee506c93cc3119.ctex"]
+source_file="res://igloo/txtbox.png"
+dest_files=["res://.godot/imported/txtbox.png-1b3c879e009e79a52842c4aa3dcb81cf.ctex"]
 
 [params]
 

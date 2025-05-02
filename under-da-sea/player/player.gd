@@ -4,21 +4,23 @@ signal health_changed
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimationPlayer
-
+@onready var stamina = $Control/StaminaBar
 @export var SPEED : float = 130.0
 @export var JUMP_VELOCITY : float = -250
 @export var SWIM_GRAVITY : float = 0.25
 @export var SWIM_VELOCITY : float = 80
 @export var SWIM_JUMP : float = -200
-
 @export var max_health = 3
 @onready var current_health: int = max_health
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_in_water : bool = false
-
+var can_regen = false
+var time_to_wait = 1.5 
+var s_timer = 0
+var can_start_stimer = true
 func _ready() -> void:
-	pass
+	stamina.value = stamina.max_value
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -49,7 +51,28 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 	handle_collision()
-
+	if can_regen == false && stamina.value != 100 or stamina.value == 0:
+		can_start_stimer = true
+		if can_start_stimer:
+			s_timer += delta
+			if s_timer >= time_to_wait:
+				can_regen = true
+				can_start_stimer = false
+				s_timer = false
+	if stamina.value == 100:
+		can_regen = false
+	if can_regen == true:
+		stamina.value += 0.5
+		can_start_stimer = false
+		s_timer = 0
+	if is_in_water:
+		stamina.value -= 0.6
+		can_regen = false
+		s_timer = 0
+	if stamina.value == 0:
+		die()
+	if is_on_floor():
+		can_regen = true
 func die() -> void:
 	queue_free()
 	collision_shape_2d.set_deferred("disabled", true)

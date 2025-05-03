@@ -125,6 +125,8 @@ radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, 3)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_qf20f")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="."]

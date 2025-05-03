@@ -44,8 +44,6 @@ tile_set = SubResource("TileSet_wf07n")
 
 [node name="Player" parent="." instance=ExtResource("1_pjuui")]
 position = Vector2(176, 328)
-collision_layer = 2
-collision_mask = 5
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-2, -1)

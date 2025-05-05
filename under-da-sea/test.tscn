@@ -44,6 +44,7 @@ tile_set = SubResource("TileSet_wf07n")
 
 [node name="Player" parent="." instance=ExtResource("1_pjuui")]
 position = Vector2(176, 328)
+collision_layer = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-2, -1)
@@ -63,6 +64,7 @@ autostart = true
 
 [node name="Fish" parent="fishfolder" instance=ExtResource("4_piqol")]
 position = Vector2(1039, 1158)
+collision_mask = 3
 
 [node name="Area2D" type="Area2D" parent="fishfolder"]
 position = Vector2(1280, 1216)

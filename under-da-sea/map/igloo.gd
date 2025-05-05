@@ -12,5 +12,5 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_player_near and event.is_action_pressed("interact"):
-		get_tree().change_scene_to_file("res://inside.tscn")
+		get_tree().change_scene_to_file("res://igloo/inside.tscn")
 		set_process_unhandled_input(false)

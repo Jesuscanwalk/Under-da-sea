@@ -51,7 +51,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 	handle_collision()
-	if can_regen == false && stamina.value != 100 or stamina.value == 0:
+	if can_regen == false && stamina.value != 1000 or stamina.value == 0:
 		can_start_stimer = true
 		if can_start_stimer:
 			s_timer += delta
@@ -59,14 +59,14 @@ func _physics_process(delta):
 				can_regen = true
 				can_start_stimer = false
 				s_timer = false
-	if stamina.value == 100:
+	if stamina.value == 1000:
 		can_regen = false
 	if can_regen == true:
 		stamina.value += 0.5
 		can_start_stimer = false
 		s_timer = 0
 	if is_in_water:
-		stamina.value -= 0.6
+		stamina.value -= 0.55
 		can_regen = false
 		s_timer = 0
 	if stamina.value == 0:

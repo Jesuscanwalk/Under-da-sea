@@ -64,7 +64,7 @@ autostart = true
 
 [node name="Fish" parent="fishfolder" instance=ExtResource("4_piqol")]
 position = Vector2(1039, 1158)
-collision_mask = 3
+collision_mask = 1
 
 [node name="Area2D" type="Area2D" parent="fishfolder"]
 position = Vector2(1280, 1216)

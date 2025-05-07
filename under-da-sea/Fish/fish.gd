@@ -78,5 +78,5 @@ func _on_vision_area_entered(area: Area2D) -> void:
 	if area != self and area.is_in_group("Fish"):
 		FishISee.append(area)
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	queue_free()

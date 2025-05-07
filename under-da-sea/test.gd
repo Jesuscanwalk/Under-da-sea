@@ -3,8 +3,8 @@ extends Node2D
 @onready var HeartsContainer = $CanvasLayer/HeartsContainer
 @onready var player = $Player
 @export var num := 100
-@export var min := 80
-@export var max := 120
+@export var _min := 80
+@export var _max := 120
 @export var prefab : PackedScene 
 @export var fishSpawnArea : CollisionShape2D
 @export var SpawnCollisionShape : CollisionShape2D
@@ -15,19 +15,19 @@ var fish_per_group = 10
 var group_radius = 50
 var num_fish = 100;
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#screensize = get_viewport_rect().size
 	queue_redraw()
 
 func _ready() -> void:
-	num_fish = randi_range(min, max)
+	num_fish = randi_range(_min, _max)
 	print(num_fish)
 	for i in num_fish:
 		spawnFish()
 	for i in range(num_groups):
-		var group_center = Vector2(randf_range(0, screensize.x), randf_range(0, screensize.y))
+		var _group_center = Vector2(randf_range(0, screensize.x), randf_range(0, screensize.y))
 		for j in range(fish_per_group):
-			var random_offset = Vector2(randf_range(-group_radius, group_radius), randf_range(-group_radius, group_radius))
+			var _random_offset = Vector2(randf_range(-group_radius, group_radius), randf_range(-group_radius, group_radius))
 	pass
 
 	HeartsContainer.setMaxHearts(player.max_health)
@@ -43,7 +43,7 @@ func spawnFish():
 
 func _on_timer_timeout() -> void:
 	var current_fish_count := $fishfolder.get_child_count()
-	#print("timeout with " + str(current_fish_count) + " fish, desired is: " + str(num_fish))
+	print("timeout with " + str(current_fish_count) + " fish, desired is: " + str(num_fish))
 	if current_fish_count < num_fish:
 		for i in range(num_fish - current_fish_count): 
 			spawnFish()
@@ -70,4 +70,5 @@ func get_global_rect(collisionShape: CollisionShape2D) -> Rect2:
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Fish"):
+		#print("Fish.exited:", area.name)
 		area.queue_free()

@@ -1,39 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct1uly5wgmhtp"]
+[gd_scene load_steps=2 format=3 uid="uid://bxcn3t5mrgp4y"]
 
-[ext_resource type="Texture2D" uid="uid://1uumx3utkwwj" path="res://igloo/txtbox.png" id="1_8wmqq"]
+[ext_resource type="Texture2D" uid="uid://1uumx3utkwwj" path="res://igloo/txtbox.png" id="1_moimn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cy2q5"]
-bg_color = Color(0, 0, 0, 0)
+[node name="Textbox" type="MarginContainer"]
+offset_right = 61.0
+offset_bottom = 35.0
 
-[node name="Textbox" type="CanvasLayer"]
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 53.0
-offset_top = -267.0
-offset_right = -40.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 8
-
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_cy2q5")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 5.0
-offset_right = 1020.0
-offset_bottom = 266.0
-texture = ExtResource("1_8wmqq")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "yayayayayyayaya"
+texture = ExtResource("1_moimn")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16

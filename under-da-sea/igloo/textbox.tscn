@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxcn3t5mrgp4y"]
+[gd_scene load_steps=4 format=3 uid="uid://bxcn3t5mrgp4y"]
 
 [ext_resource type="Texture2D" uid="uid://1uumx3utkwwj" path="res://igloo/txtbox.png" id="1_moimn"]
+[ext_resource type="Script" path="res://igloo/textbox.gd" id="1_yh6vk"]
+[ext_resource type="FontFile" uid="uid://b32vmci8dumap" path="res://menus/PeaberryDoublespace.ttf" id="3_koyvt"]
 
 [node name="Textbox" type="MarginContainer"]
 offset_right = 61.0
 offset_bottom = 35.0
+script = ExtResource("1_yh6vk")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -14,3 +17,19 @@ patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_koyvt")
+vertical_alignment = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="."]
+one_shot = true

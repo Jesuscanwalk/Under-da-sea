@@ -14,6 +14,10 @@ config/name="under da sea"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DialogManager="*res://DialogManager.gd"
+
 [input]
 
 left={

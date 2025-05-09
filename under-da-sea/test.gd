@@ -70,5 +70,4 @@ func get_global_rect(collisionShape: CollisionShape2D) -> Rect2:
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Fish"):
-		#print("Fish.exited:", area.name)
 		area.queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnv6j7ubi85lw"]
+[gd_scene load_steps=6 format=3 uid="uid://cnv6j7ubi85lw"]
 
 [ext_resource type="Script" path="res://Fish/fish.gd" id="1_vvukt"]
 [ext_resource type="Texture2D" uid="uid://d4trt17e45oi" path="res://Fish/fishy3.png" id="2_utngr"]
@@ -8,6 +8,9 @@ size = Vector2(41, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eabi"]
 size = Vector2(245, 133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_safi2"]
+size = Vector2(5.79165, 19.1563)
 
 [node name="Fish" type="Area2D" groups=["Fish"]]
 collision_layer = 4
@@ -44,6 +47,13 @@ target_position = Vector2(56, -62)
 
 [node name="RayCast2D4" type="RayCast2D" parent="rayfolder"]
 target_position = Vector2(90, 57)
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-8, -5.96046e-08)
+scale = Vector2(6.31598, 1.34216)
+shape = SubResource("RectangleShape2D_safi2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Vision" to="." method="_on_vision_area_entered"]

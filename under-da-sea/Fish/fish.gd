@@ -16,6 +16,14 @@ var separation_weight := 1.5
 var direction_influence := 0.02
 var drift_strength := 0.1
 var min_separation_distance := 10.0
+@onready var hitbox: Area2D = $Hitbox
+var _player: Player = null
+
+func _ready() -> void:
+	hitbox.body_entered.connect(func (body: Node) -> void:
+		if body is Player:
+			queue_free()
+			)
 
 func get_screensize():
 	return get_viewport_rect().size
@@ -77,6 +85,3 @@ func _on_vision_area_exited(area: Area2D) -> void:
 func _on_vision_area_entered(area: Area2D) -> void:
 	if area != self and area.is_in_group("Fish"):
 		FishISee.append(area)
-
-func _on_body_entered(_body: Node2D) -> void:
-	queue_free()

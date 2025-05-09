@@ -41,3 +41,4 @@ func _unhandled_input(event):
 			is_dialog_active = false
 			current_line_index = 0
 			return
+		_show_text_box()

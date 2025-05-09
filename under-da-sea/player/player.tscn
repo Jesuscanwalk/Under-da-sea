@@ -165,5 +165,8 @@ nine_patch_stretch = true
 texture_under = ExtResource("5_8is68")
 texture_progress = ExtResource("6_m2fii")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(7, 7)
+
 [connection signal="water_state_changed" from="WaterDetection" to="." method="_on_water_detection_water_state_changed"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

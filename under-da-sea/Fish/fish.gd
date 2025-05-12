@@ -17,7 +17,6 @@ var direction_influence := 0.02
 var drift_strength := 0.1
 var min_separation_distance := 10.0
 @onready var hitbox: Area2D = $Hitbox
-var _player: Player = null
 
 func _ready() -> void:
 	hitbox.body_entered.connect(func (body: Node) -> void:

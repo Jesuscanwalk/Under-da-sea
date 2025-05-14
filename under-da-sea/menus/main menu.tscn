@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://yovku38ll5fn"]
+[gd_scene load_steps=8 format=3 uid="uid://yovku38ll5fn"]
 
 [ext_resource type="Script" path="res://menus/main_menu.gd" id="1_clhbw"]
 [ext_resource type="FontFile" uid="uid://b32vmci8dumap" path="res://menus/PeaberryDoublespace.ttf" id="1_y225s"]
+[ext_resource type="Texture2D" uid="uid://dcmxq60tm30ax" path="res://Background2 (1).png" id="2_qcw31"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb4qf"]
 bg_color = Color(0.627451, 0.568627, 0.721569, 1)
@@ -36,6 +37,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background2(1)" type="Sprite2D" parent="Panel"]
+position = Vector2(575.5, 323)
+scale = Vector2(0.771333, 0.432)
+texture = ExtResource("2_qcw31")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

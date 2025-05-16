@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://cx3yaof1y7gcr"]
+[gd_scene load_steps=22 format=3 uid="uid://cx3yaof1y7gcr"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_qf20f"]
 [ext_resource type="Texture2D" uid="uid://3u4vxkk1jq2c" path="res://player/sprite2-Sheet.png" id="2_wsiwp"]
 [ext_resource type="PackedScene" uid="uid://chey3nfyptsk6" path="res://water/water_detection.tscn" id="3_101xf"]
 [ext_resource type="Texture2D" uid="uid://c7cpgy60d1wpd" path="res://map/white.png" id="5_8is68"]
+[ext_resource type="AudioStream" uid="uid://cqrcbnqdcmdoa" path="res://drowning-girl-5-103673.mp3" id="6_hyuhj"]
 [ext_resource type="Texture2D" uid="uid://c42vls4bb5v10" path="res://map/water.png" id="6_m2fii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ab4fl"]
@@ -167,6 +168,9 @@ texture_progress = ExtResource("6_m2fii")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="DieSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_hyuhj")
 
 [connection signal="water_state_changed" from="WaterDetection" to="." method="_on_water_detection_water_state_changed"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

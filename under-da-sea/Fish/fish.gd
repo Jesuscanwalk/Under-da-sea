@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var rayfolder = $rayfolder.get_children()
 var FishISee := []
-var max_speed = 10
+@export var max_speed = 5
 var vel := Vector2.ZERO
 @export var speed := 5.0
 #@onready var screensize = get_viewport_rect().size 
@@ -31,6 +31,7 @@ func _process(_delta: float) -> void:
 	Fish()
 	checkCollision()
 	vel = vel.normalized() * speed 
+	#vel = vel.limit_length(speed)
 	move()
 	rotation = lerp_angle(rotation, vel. angle_to_point(Vector2.ZERO), 0.4)
 
@@ -60,7 +61,7 @@ func checkCollision() -> void:
 	for ray in rayfolder:
 		var r: RayCast2D = ray
 		if r.is_colliding():
-			var collider = r.get_collider()
+			var _collider = r.get_collider()
 			if r.get_collider().is_in_group("blocks"):
 				var magi := 100/ (r.get_collision_point() - global_position).length_squared()
 				vel -= (r.cast_to.rotated(rotation) * magi)

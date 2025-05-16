@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 signal health_changed
-
+@onready var die_sound: AudioStreamPlayer2D = $DieSound
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimationPlayer
 @onready var stamina = $Control/StaminaBar
@@ -75,6 +75,7 @@ func _physics_process(delta):
 		can_regen = true
 func die() -> void:
 	queue_free()
+	die_sound.play()
 	collision_shape_2d.set_deferred("disabled", true)
 	get_tree().change_scene_to_file("res://menus/end.tscn")
 

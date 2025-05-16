@@ -1,10 +1,11 @@
 extends Node2D
 
+@onready var spawn_fish: AudioStreamPlayer2D = $SpawnFish
 @onready var HeartsContainer = $CanvasLayer/HeartsContainer
 @onready var player = $Player
 @export var num := 100
-@export var _min := 80
-@export var _max := 120
+@export var _min := 40
+@export var _max := 80
 @export var prefab : PackedScene 
 @export var fishSpawnArea : CollisionShape2D
 @export var SpawnCollisionShape : CollisionShape2D
@@ -22,7 +23,7 @@ func _process(_delta: float) -> void:
 func _ready() -> void:
 	num_fish = randi_range(_min, _max)
 	print(num_fish)
-	for i in num_fish:
+	for i in range(num_fish):
 		spawnFish()
 	for i in range(num_groups):
 		var _group_center = Vector2(randf_range(0, screensize.x), randf_range(0, screensize.y))
@@ -39,7 +40,7 @@ func spawnFish():
 	$fishfolder.add_child(fish)
 	fish.modulate = Color(randf(), randf(), randf(), 1)
 	fish.global_position = get_spawn_point_global(fishSpawnArea)
-
+	spawn_fish.play()
 
 func _on_timer_timeout() -> void:
 	var current_fish_count := $fishfolder.get_child_count()
@@ -70,4 +71,5 @@ func get_global_rect(collisionShape: CollisionShape2D) -> Rect2:
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Fish"):
+	#if area.is_in_group("Fish") and not self.get_rect().has_point(area.global_position):
 		area.queue_free()

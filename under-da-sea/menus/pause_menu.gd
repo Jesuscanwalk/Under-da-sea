@@ -3,7 +3,7 @@ extends Control
 @onready var ui_panel_container: PanelContainer = %UIPanelContainer
 @onready var resume_button: Button = %resume
 @onready var quit_button: Button = %quit
-
+"res://Background2 (1).png"
 func _ready():
 	ui_panel_container.visible = false
 

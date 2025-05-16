@@ -388,9 +388,9 @@ _data = {
 "opening": SubResource("Animation_v404a")
 }
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nvpt5"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_71d0x"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0ndc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wfxlp"]
 texture = ExtResource("1_0q44y")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -401,7 +401,7 @@ texture = ExtResource("1_0q44y")
 6:0/0 = 0
 6:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_og2mc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_65pxq"]
 texture = ExtResource("2_ijmyk")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -442,10 +442,10 @@ texture = ExtResource("2_ijmyk")
 
 [sub_resource type="TileSet" id="TileSet_twkhv"]
 physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_nvpt5")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_71d0x")
 physics_layer_1/collision_layer = 2
-sources/0 = SubResource("TileSetAtlasSource_n0ndc")
-sources/1 = SubResource("TileSetAtlasSource_og2mc")
+sources/0 = SubResource("TileSetAtlasSource_wfxlp")
+sources/1 = SubResource("TileSetAtlasSource_65pxq")
 
 [node name="cutscene" type="Node2D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_1716c")

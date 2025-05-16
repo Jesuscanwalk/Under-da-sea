@@ -54,7 +54,6 @@ collision_layer = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_2encr")]
-visible = false
 
 [node name="HeartsContainer" parent="CanvasLayer" instance=ExtResource("6_ascy7")]
 
@@ -77,7 +76,7 @@ position = Vector2(-4, -20)
 shape = SubResource("RectangleShape2D_8w2t7")
 
 [node name="Mob" parent="." instance=ExtResource("7_bkfj6")]
-position = Vector2(448, 344)
+position = Vector2(616, 992)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://c5t2puvctstfo"]
+[gd_scene load_steps=7 format=4 uid="uid://c5t2puvctstfo"]
 
 [ext_resource type="Texture2D" uid="uid://b7b25hc2d8itu" path="res://map/Lands2.png" id="1_yimmd"]
 [ext_resource type="PackedScene" uid="uid://cx3yaof1y7gcr" path="res://player/player.tscn" id="2_wklv7"]
 [ext_resource type="PackedScene" uid="uid://bbb3hbjvo0qkd" path="res://igloo/wife.tscn" id="3_ufiav"]
+[ext_resource type="PackedScene" uid="uid://1f3hioeimvb6" path="res://menus/pause menu.tscn" id="4_nj63g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvacm"]
 texture = ExtResource("1_yimmd")
@@ -32,3 +33,7 @@ position = Vector2(364, 246)
 
 [node name="wife" parent="." instance=ExtResource("3_ufiav")]
 position = Vector2(314, 234)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_nj63g")]

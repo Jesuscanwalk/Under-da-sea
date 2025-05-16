@@ -12,6 +12,7 @@ signal health_changed
 @export var SWIM_JUMP : float = -200
 @export var max_health = 3
 @onready var current_health: int = max_health
+@onready var enter_water_sound: AudioStreamPlayer2D = $EnterWaterSound
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_in_water : bool = false
@@ -62,7 +63,7 @@ func _physics_process(delta):
 	if stamina.value == 1000:
 		can_regen = false
 	if can_regen == true:
-		stamina.value += 0.5
+		stamina.value += 1
 		can_start_stimer = false
 		s_timer = 0
 	if is_in_water:
@@ -73,6 +74,7 @@ func _physics_process(delta):
 		die()
 	if is_on_floor():
 		can_regen = true
+
 func die() -> void:
 	queue_free()
 	die_sound.play()
@@ -87,6 +89,7 @@ func handle_collision():
 func _on_water_detection_water_state_changed(is_in_water):
 	self.is_in_water = is_in_water
 	print(is_in_water)
+	enter_water_sound.play()
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.name == "HitBox":

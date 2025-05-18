@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhqf4ixvviaci"]
+
+[ext_resource type="Script" path="res://igloo/iglooinside.gd" id="1_61r0c"]
+[ext_resource type="Texture2D" uid="uid://c2wdui1pgr857" path="res://igloo/Exisitng door.png" id="2_17l2m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n2q2c"]
+radius = 18.0
+
+[node name="IglooInside" type="Area2D"]
+script = ExtResource("1_61r0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(13.0265, -11.4801)
+scale = Vector2(0.303772, 0.247918)
+texture = ExtResource("2_17l2m")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, -12)
+shape = SubResource("CircleShape2D_n2q2c")

@@ -1,16 +1,66 @@
-[gd_scene load_steps=6 format=3 uid="uid://rnuiv84gehib"]
+[gd_scene load_steps=13 format=3 uid="uid://rnuiv84gehib"]
 
-[ext_resource type="Texture2D" uid="uid://bogfaj6ybiin0" path="res://icon.svg" id="1_0glb4"]
 [ext_resource type="Script" path="res://mob/mob.gd" id="1_lqw1b"]
+[ext_resource type="Texture2D" uid="uid://bd30nrsgkdlce" path="res://mob/araarar-export.png" id="2_trv72"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i8qf"]
+atlas = ExtResource("2_trv72")
+region = Rect2(0, 0, 3280, 2800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al62q"]
+atlas = ExtResource("2_trv72")
+region = Rect2(3280, 0, 3280, 2800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qndg0"]
+atlas = ExtResource("2_trv72")
+region = Rect2(6560, 0, 3280, 2800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y5dk"]
+atlas = ExtResource("2_trv72")
+region = Rect2(9840, 0, 3280, 2800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62u3o"]
+atlas = ExtResource("2_trv72")
+region = Rect2(13120, 0, 3280, 2800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxtjx"]
+atlas = ExtResource("2_trv72")
+region = Rect2(16400, 0, 3280, 2800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pgqme"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i8qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al62q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qndg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y5dk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62u3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxtjx")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykmop"]
-size = Vector2(43, 41.5)
+size = Vector2(25.5955, 25.8152)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fatr0"]
-radius = 75.2396
+radius = 72.2692
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eagxg"]
-size = Vector2(42.5, 40)
+size = Vector2(21.3788, 17.4471)
 
 [node name="Mob" type="CharacterBody2D"]
 collision_layer = 4
@@ -18,27 +68,36 @@ collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_lqw1b")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-6.25, -21.75)
-scale = Vector2(0.347656, 0.347656)
-texture = ExtResource("1_0glb4")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(26, -37)
+scale = Vector2(0.037393, 0.0526035)
+sprite_frames = SubResource("SpriteFrames_pgqme")
+animation = &"swim"
+frame_progress = 0.161551
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -25)
+position = Vector2(21.5, -9.5)
+scale = Vector2(2.69579, -0.765944)
 shape = SubResource("RectangleShape2D_ykmop")
 debug_color = Color(0.73755, 0.40624, 0.61582, 0.42)
 
 [node name="DetectionArea" type="Area2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(18, 1)
+scale = Vector2(1.82461, 0.859652)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(-4, -22)
+position = Vector2(2.19225, -13.9591)
+scale = Vector2(0.926928, 0.803274)
 shape = SubResource("CircleShape2D_fatr0")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(41, 32)
+scale = Vector2(4.58399, 1.94875)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-5, -25)
+position = Vector2(-3.92671, -21.5523)
+scale = Vector2(0.737516, 0.604975)
 shape = SubResource("RectangleShape2D_eagxg")
 debug_color = Color(0.808213, 0.33409, 0.630594, 0.42)
 

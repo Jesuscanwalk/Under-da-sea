@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://c5t2puvctstfo"]
+[gd_scene load_steps=10 format=4 uid="uid://c5t2puvctstfo"]
 
 [ext_resource type="Texture2D" uid="uid://b7b25hc2d8itu" path="res://map/Lands2.png" id="1_yimmd"]
 [ext_resource type="PackedScene" uid="uid://cx3yaof1y7gcr" path="res://player/player.tscn" id="2_wklv7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://1f3hioeimvb6" path="res://menus/pause menu.tscn" id="4_nj63g"]
 [ext_resource type="PackedScene" uid="uid://dhqf4ixvviaci" path="res://igloo/iglooinside.tscn" id="5_xyfd2"]
 [ext_resource type="Texture2D" uid="uid://cbeorwom2jmwg" path="res://igloo/Igloo Background.png" id="6_1r03a"]
+[ext_resource type="Texture2D" uid="uid://bepixin1g1hga" path="res://player/penguin.png" id="7_aigrk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvacm"]
 texture = ExtResource("1_yimmd")
@@ -33,6 +34,12 @@ tile_set = SubResource("TileSet_wrhrr")
 [node name="iglooinside" parent="." instance=ExtResource("5_xyfd2")]
 position = Vector2(97, 254)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+position = Vector2(290, 244)
+scale = Vector2(0.0619679, 0.0541237)
+texture = ExtResource("7_aigrk")
+
 [node name="wife" parent="." instance=ExtResource("3_ufiav")]
 position = Vector2(314, 234)
 
@@ -40,7 +47,6 @@ position = Vector2(314, 234)
 position = Vector2(364, 246)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_nj63g")]
 

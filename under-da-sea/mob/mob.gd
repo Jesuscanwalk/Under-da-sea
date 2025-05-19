@@ -2,6 +2,7 @@ class_name Mob extends CharacterBody2D
 
 @export var max_speed := 250.0
 @export var acceleration := 700.0
+@onready var player: Player = $"../Player"
 
 var _player: Player = null
 var damage := 1
@@ -9,12 +10,15 @@ var damage := 1
 @onready var detection_area: Area2D = %DetectionArea
 @onready var hitbox: Area2D = $Hitbox
 @onready var damage_timer: Timer = $DamageTimer
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _ready() -> void:
 	detection_area.body_entered.connect(func (body: Node) -> void:
 		if body is Player:
+			animated_sprite_2d.play("swim")
 			_player = body
+			animated_sprite_2d.flip_h = true
 	)
 	detection_area.body_exited.connect(func (body: Node) -> void:
 		if body is Player:
@@ -44,3 +48,4 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(desired_velocity, acceleration * delta)
 
 	move_and_slide()
+	look_at(player.position)

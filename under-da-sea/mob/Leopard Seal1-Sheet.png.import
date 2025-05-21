@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd30nrsgkdlce"
-path="res://.godot/imported/araarar-export.png-de51114f9257de94b7a98f52bef61ae1.ctex"
+uid="uid://iolpwiprwj2n"
+path="res://.godot/imported/Leopard Seal1-Sheet.png-63f72455ad00af24479a0212c0e29884.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mob/araarar-export.png"
-dest_files=["res://.godot/imported/araarar-export.png-de51114f9257de94b7a98f52bef61ae1.ctex"]
+source_file="res://mob/Leopard Seal1-Sheet.png"
+dest_files=["res://.godot/imported/Leopard Seal1-Sheet.png-63f72455ad00af24479a0212c0e29884.ctex"]
 
 [params]
 

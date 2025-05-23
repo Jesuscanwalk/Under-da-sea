@@ -8,6 +8,6 @@ const lines: Array[String] = [
 ]
 
 func _unhandled_input(event):
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("next"):
 		DialogManager.start_dialog(global_position, lines)
  
